@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/recruit-net/hire-common/pom.xml" />
+        <option value="$PROJECT_DIR$/recruit-net/hire-api/pom.xml" />
+        <option value="$PROJECT_DIR$/recruit-net/hire-pojo/pom.xml" />
+        <option value="$PROJECT_DIR$/recruit-net/service-company-6001/pom.xml" />
+        <option value="$PROJECT_DIR$/recruit-net/service-user-7001/pom.xml" />
+        <option value="$PROJECT_DIR$/recruit-net/pom.xml" />
+        <option value="$PROJECT_DIR$/recruit-net/gateway-8000/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="17" project-jdk-type="JavaSDK" />
+</project>

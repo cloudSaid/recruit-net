@@ -3,6 +3,13 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/CloudSaidGetHub.iml" filepath="$PROJECT_DIR$/.idea/CloudSaidGetHub.iml" />
+      <module fileurl="file://$PROJECT_DIR$/recruit-net/gateway-8000/gateway-8000.iml" filepath="$PROJECT_DIR$/recruit-net/gateway-8000/gateway-8000.iml" />
+      <module fileurl="file://$PROJECT_DIR$/recruit-net/hire-api/hire-api.iml" filepath="$PROJECT_DIR$/recruit-net/hire-api/hire-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/recruit-net/hire-common/hire-common.iml" filepath="$PROJECT_DIR$/recruit-net/hire-common/hire-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/recruit-net/hire-pojo/hire-pojo.iml" filepath="$PROJECT_DIR$/recruit-net/hire-pojo/hire-pojo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/recruit-net/imooc-hire-dev.iml" filepath="$PROJECT_DIR$/recruit-net/imooc-hire-dev.iml" />
+      <module fileurl="file://$PROJECT_DIR$/recruit-net/service-company-6001/service-company-6001.iml" filepath="$PROJECT_DIR$/recruit-net/service-company-6001/service-company-6001.iml" />
+      <module fileurl="file://$PROJECT_DIR$/recruit-net/service-user-7001/service-user-7001.iml" filepath="$PROJECT_DIR$/recruit-net/service-user-7001/service-user-7001.iml" />
     </modules>
   </component>
 </project>

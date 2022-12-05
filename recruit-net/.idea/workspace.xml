@@ -54,15 +54,12 @@
       </list>
     </option>
   </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="localRepository" value="D:\MAVEN-repo" />
+        <option name="localRepository" value="/maven/repository" />
         <option name="mavenHome" value="/maven/apache-maven-3.6.0" />
-        <option name="userSettingsFile" value="D:\apache-maven-3.6.3\conf\settings.xml" />
+        <option name="userSettingsFile" value="/maven/settings.xml" />
       </MavenGeneralSettings>
     </option>
   </component>
@@ -88,7 +85,7 @@
     <option name="width" value="1878" />
     <option name="height" value="1057" />
   </component>
-  <component name="ProjectId" id="2IUXl0a7hzjRwlAb5QdgMIuExxY" />
+  <component name="ProjectId" id="2IUejPDfXrQsZvXSr2p1rgp8D4x" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <flattenPackages ProjectPane="true" />
@@ -118,11 +115,9 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "MavenSettings"
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -198,7 +193,7 @@
       <workItem from="1662260146953" duration="4557000" />
       <workItem from="1662281463793" duration="2845000" />
       <workItem from="1662339621695" duration="2779000" />
-      <workItem from="1670237284178" duration="842000" />
+      <workItem from="1670240725700" duration="13000" />
     </task>
     <servers />
   </component>

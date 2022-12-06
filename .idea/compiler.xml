@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="service-company-6001" />
         <module name="hire-api" />
+        <module name="service-verificationcode" />
         <module name="auth-service-8111" />
         <module name="hire-pojo" />
         <module name="hire-common" />
@@ -24,6 +25,7 @@
       <module name="imooc-hire-dev" target="1.8" />
       <module name="service-company-6001" target="1.8" />
       <module name="service-user-7001" target="1.8" />
+      <module name="service-verificationcode" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -36,6 +38,7 @@
       <module name="imooc-hire-dev" options="-parameters" />
       <module name="service-company-6001" options="-parameters" />
       <module name="service-user-7001" options="-parameters" />
+      <module name="service-verificationcode" options="-parameters" />
     </option>
   </component>
 </project>

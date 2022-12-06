@@ -22,6 +22,8 @@
         <module>service-user-7001</module>
         <module>service-company-6001</module>
         <module>gateway-8000</module>
+        <module>service-verificationcode-8112</module>
+
     </modules>
 
     <!--
@@ -53,6 +55,7 @@
     -->
     <dependencyManagement>
         <dependencies>
+
 
             <!-- 引入微服务 spring-cloud-->
             <dependency>

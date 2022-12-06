@@ -9,6 +9,8 @@
     <file url="file://$PROJECT_DIR$/recruit-net/hire-pojo/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/recruit-net/service-company-6001/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/recruit-net/service-user-7001/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/recruit-net/service-verificationcode-8112/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/recruit-net/service-verificationcode-8112/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/recruit-net/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/recruit-net/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../MAVEN-repo/org/springframework/boot/spring-boot-starter-parent/2.6.11/src/main/resources" charset="UTF-8" />

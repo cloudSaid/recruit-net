@@ -11,6 +11,7 @@
         <option value="$PROJECT_DIR$/recruit-net/pom.xml" />
         <option value="$PROJECT_DIR$/recruit-net/gateway-8000/pom.xml" />
         <option value="$PROJECT_DIR$/recruit-net/auth-service-8111/pom.xml" />
+        <option value="$PROJECT_DIR$/recruit-net/service-verificationcode-8112/pom.xml" />
       </list>
     </option>
   </component>

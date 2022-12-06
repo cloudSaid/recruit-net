@@ -8,8 +8,8 @@ import java.time.LocalDateTime;
  * 聊天信息存储表
  * </p>
  *
- * @author 风间影月
- * @since 2022-09-04
+ * @author
+ * @since
  */
 public class ChatMessage implements Serializable {
 
@@ -93,13 +93,13 @@ public class ChatMessage implements Serializable {
     private String resumeUserId;
 
     /**
-     * 简历名称（候选人名称）  
+     * 简历名称（候选人名称）
 简历名称与职位使用字段冗余，目的相当于快照，只记录当时信息
      */
     private String resumeName;
 
     /**
-     * 候选人职位  
+     * 候选人职位
 简历名称与职位使用字段冗余，目的相当于快照，只记录当时信息
      */
     private String resumePosition;

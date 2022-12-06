@@ -8,8 +8,8 @@ import java.time.LocalDateTime;
  * 项目经验表
  * </p>
  *
- * @author 风间影月
- * @since 2022-09-04
+ * @author
+ * @since
  */
 public class ResumeProjectExp implements Serializable {
 

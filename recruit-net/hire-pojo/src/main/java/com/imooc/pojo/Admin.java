@@ -5,11 +5,11 @@ import java.time.LocalDateTime;
 
 /**
  * <p>
- * 慕聘网运营管理系统的admin账户表，仅登录，不提供注册
+ * 运营管理系统的admin账户表，仅登录，不提供注册
  * </p>
  *
- * @author 风间影月
- * @since 2022-09-04
+ * @author
+ * @since
  */
 public class Admin implements Serializable {
 

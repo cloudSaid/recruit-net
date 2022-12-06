@@ -9,8 +9,8 @@ import java.time.LocalDateTime;
 本表为次表，可做冗余，可以用mongo或者es替代
  * </p>
  *
- * @author 风间影月
- * @since 2022-09-04
+ * @author
+ * @since
  */
 public class Interview implements Serializable {
 
@@ -69,19 +69,19 @@ public class Interview implements Serializable {
     private Integer status;
 
     /**
-     * 候选人名称（候选人名称）  
+     * 候选人名称（候选人名称）
 简历名称与职位使用字段冗余，目的相当于快照，只记录当时信息
      */
     private String candName;
 
     /**
-     * 候选人头像  
+     * 候选人头像
 简历名称与职位使用字段冗余，目的相当于快照，只记录当时信息
      */
     private String candFace;
 
     /**
-     * 候选人职位  
+     * 候选人职位
 简历名称与职位使用字段冗余，目的相当于快照，只记录当时信息
      */
     private String candPosition;

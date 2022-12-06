@@ -9,8 +9,8 @@ import org.springframework.stereotype.Repository;
  *  Mapper 接口
  * </p>
  *
- * @author 风间影月
- * @since 2022-09-04
+ * @author
+ * @since
  */
 @Repository
 public interface StuMapper extends BaseMapper<Stu> {

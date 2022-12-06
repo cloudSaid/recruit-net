@@ -8,8 +8,8 @@ import java.time.LocalDateTime;
  * 教育经历表
  * </p>
  *
- * @author 风间影月
- * @since 2022-09-04
+ * @author
+ * @since
  */
 public class ResumeEducation implements Serializable {
 

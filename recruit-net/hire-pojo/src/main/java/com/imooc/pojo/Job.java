@@ -8,8 +8,8 @@ import java.time.LocalDateTime;
  * HR发布的职位表
  * </p>
  *
- * @author 风间影月
- * @since 2022-09-04
+ * @author
+ * @since
  */
 public class Job implements Serializable {
 

@@ -7,8 +7,8 @@ import java.io.Serializable;
  * 数据字典表
  * </p>
  *
- * @author 风间影月
- * @since 2022-09-04
+ * @author
+ * @since
  */
 public class DataDictionary implements Serializable {
 

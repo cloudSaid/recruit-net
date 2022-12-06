@@ -8,8 +8,8 @@ import com.imooc.pojo.Users;
  * 用户表 服务类
  * </p>
  *
- * @author 风间影月
- * @since 2022-09-04
+ * @author
+ * @since
  */
 public interface UsersService extends IService<Users> {
 

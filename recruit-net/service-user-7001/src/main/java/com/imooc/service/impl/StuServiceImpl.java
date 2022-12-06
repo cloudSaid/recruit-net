@@ -13,8 +13,8 @@ import org.springframework.transaction.annotation.Transactional;
  *  服务实现类
  * </p>
  *
- * @author 风间影月
- * @since 2022-09-04
+ * @author
+ * @since
  */
 @Service
 public class StuServiceImpl implements StuService {

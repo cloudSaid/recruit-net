@@ -6,15 +6,17 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="service-company-6001" />
+        <module name="hire-api" />
+        <module name="auth-service-8111" />
         <module name="hire-pojo" />
         <module name="hire-common" />
         <module name="service-user-7001" />
-        <module name="service-company-6001" />
         <module name="gateway-8000" />
-        <module name="hire-api" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="auth-service-8111" target="1.8" />
       <module name="gateway-8000" target="1.8" />
       <module name="hire-api" target="1.8" />
       <module name="hire-common" target="1.8" />
@@ -26,6 +28,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="auth-service-8111" options="-parameters" />
       <module name="gateway-8000" options="-parameters" />
       <module name="hire-api" options="-parameters" />
       <module name="hire-common" options="-parameters" />

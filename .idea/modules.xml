@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/CloudSaidGetHub.iml" filepath="$PROJECT_DIR$/.idea/CloudSaidGetHub.iml" />
+      <module fileurl="file://$PROJECT_DIR$/recruit-net/auth-service-8111/auth-service-8111.iml" filepath="$PROJECT_DIR$/recruit-net/auth-service-8111/auth-service-8111.iml" />
       <module fileurl="file://$PROJECT_DIR$/recruit-net/gateway-8000/gateway-8000.iml" filepath="$PROJECT_DIR$/recruit-net/gateway-8000/gateway-8000.iml" />
       <module fileurl="file://$PROJECT_DIR$/recruit-net/hire-api/hire-api.iml" filepath="$PROJECT_DIR$/recruit-net/hire-api/hire-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/recruit-net/hire-common/hire-common.iml" filepath="$PROJECT_DIR$/recruit-net/hire-common/hire-common.iml" />

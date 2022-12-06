@@ -9,8 +9,8 @@ import java.time.LocalDateTime;
  * 企业表
  * </p>
  *
- * @author
- * @since
+ * @author 风间影月
+ * @since 2022-09-04
  */
 public class Company implements Serializable {
 

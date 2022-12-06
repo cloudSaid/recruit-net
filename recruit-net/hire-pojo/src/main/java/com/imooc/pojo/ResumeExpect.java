@@ -8,8 +8,8 @@ import java.time.LocalDateTime;
  * 求职期望表
  * </p>
  *
- * @author
- * @since
+ * @author 风间影月
+ * @since 2022-09-04
  */
 public class ResumeExpect implements Serializable {
 

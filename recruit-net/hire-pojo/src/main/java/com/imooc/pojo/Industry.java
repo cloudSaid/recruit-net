@@ -7,8 +7,8 @@ import java.io.Serializable;
  * 行业表
  * </p>
  *
- * @author
- * @since
+ * @author 风间影月
+ * @since 2022-09-04
  */
 public class Industry implements Serializable {
 

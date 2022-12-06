@@ -7,8 +7,8 @@ import java.io.Serializable;
  * 系统参数配置表，本表仅有一条记录
  * </p>
  *
- * @author
- * @since
+ * @author 风间影月
+ * @since 2022-09-04
  */
 public class SysParams implements Serializable {
 

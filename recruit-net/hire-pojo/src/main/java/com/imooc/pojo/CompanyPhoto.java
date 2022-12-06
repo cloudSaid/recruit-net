@@ -7,8 +7,8 @@ import java.io.Serializable;
  * 企业相册表，本表只存企业上传的图片
  * </p>
  *
- * @author
- * @since
+ * @author 风间影月
+ * @since 2022-09-04
  */
 public class CompanyPhoto implements Serializable {
 

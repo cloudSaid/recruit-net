@@ -4,11 +4,11 @@ import java.io.Serializable;
 
 /**
  * <p>
- *
+ * 
  * </p>
  *
- * @author
- * @since
+ * @author 风间影月
+ * @since 2022-09-04
  */
 public class Stu implements Serializable {
 

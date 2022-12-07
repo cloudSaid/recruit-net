@@ -1,5 +1,7 @@
 package com.imooc.pojo;
 
+import com.baomidou.mybatisplus.annotation.TableName;
+
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;

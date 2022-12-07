@@ -12,6 +12,7 @@ import com.imooc.utils.DesensitizationUtil;
 import com.imooc.utils.LocalDateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -34,12 +35,13 @@ public class UserServiceImpl extends ServiceImpl<UsersMapper, Users> implements 
     @Override
     public Users queryMobileIsExist(String mobile)
     {
-        Users userInfo = usersMapper.selectOne(new QueryWrapper<Users>().eq("moble", mobile));
+        Users userInfo = usersMapper.selectOne(new QueryWrapper<Users>().eq("mobile", mobile));
 
         return userInfo;
     }
 
     @Override
+    @Transactional
     public Users createUsers(String mobile)
     {
         Users user = new Users();

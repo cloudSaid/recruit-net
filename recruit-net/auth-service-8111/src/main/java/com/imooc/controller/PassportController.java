@@ -5,15 +5,18 @@ import com.imooc.grace.result.GraceJSONResult;
 import com.imooc.grace.result.ResponseStatusEnum;
 import com.imooc.pojo.Users;
 import com.imooc.pojo.bo.RegistLoginBO;
+import com.imooc.pojo.vo.UsersVO;
 import com.imooc.service.UsersService;
 import com.imooc.utils.IPUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.UUID;
 
 /**
  * @author Leo
@@ -72,13 +75,30 @@ public class PassportController extends BaseInfoProperties
         Users userInfo = usersService.queryMobileIsExist(mobile);
         //为空则注册
         if (userInfo == null){
-            usersService.createUsers(mobile);
+            userInfo = usersService.createUsers(mobile);
         }
+
+        String uToken = TOKEN_USER_PREFIX + SYMBOL_DOT + UUID.randomUUID().toString();
+        redis.set(MOBILE_SMSCODE + ":" + userInfo.getId(),uToken);
 
         redis.del(MOBILE_SMSCODE + ":" + mobile);
 
-        return GraceJSONResult.ok(userInfo);
+        UsersVO usersVO = new UsersVO();
+        BeanUtils.copyProperties(userInfo,usersVO);
+        usersVO.setUserToken(uToken);
+
+        return GraceJSONResult.ok(usersVO);
 
     }
+
+    @PostMapping("logout")
+    public GraceJSONResult login(@RequestParam String userId,
+                                 HttpServletRequest servletRequest) {
+
+        redis.del(MOBILE_SMSCODE + ":" + userId);
+
+        return GraceJSONResult.ok();
+    }
+
 
 }

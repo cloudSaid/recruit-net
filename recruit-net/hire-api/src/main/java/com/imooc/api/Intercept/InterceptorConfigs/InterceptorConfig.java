@@ -1,5 +1,6 @@
 package com.imooc.api.Intercept.InterceptorConfigs;
 
+import com.imooc.api.Intercept.JurisdictionInterceptor;
 import com.imooc.api.Intercept.SMSInterceptor;
 import org.springframework.cloud.util.ConditionalOnBootstrapEnabled;
 import org.springframework.context.annotation.Bean;
@@ -26,9 +27,16 @@ public class InterceptorConfig implements WebMvcConfigurer {
         return new SMSInterceptor();
     }
 
+    @Bean
+    public JurisdictionInterceptor jurisdictionInterceptor(){
+        return new JurisdictionInterceptor();
+    }
+
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(registerSMSInterceptor())
                 .addPathPatterns("/passport/getSMSCode");
+        registry.addInterceptor(jurisdictionInterceptor())
+                .addPathPatterns("/u/hello","/c/hello");
     }
 }

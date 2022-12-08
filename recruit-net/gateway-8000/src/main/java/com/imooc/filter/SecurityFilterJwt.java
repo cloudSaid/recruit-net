@@ -5,12 +5,16 @@ import com.google.gson.Gson;
 import com.imooc.grace.result.GraceJSONResult;
 import com.imooc.grace.result.ResponseStatusEnum;
 import com.imooc.properties.ReleasePathProperties;
+import com.imooc.utils.JWTUtils;
+import io.jsonwebtoken.ExpiredJwtException;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.core.Ordered;
 import org.springframework.core.io.buffer.DataBuffer;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.server.reactive.ServerHttpResponse;
 import org.springframework.stereotype.Component;
@@ -38,6 +42,10 @@ public class SecurityFilterJwt implements GlobalFilter, Ordered {
     @Autowired
     private ReleasePathProperties releasePaths;
 
+    private static final String HEADER_USER_TOKEN = "headerUserToken";
+
+    @Autowired
+    private JWTUtils jwtUtils;
 
     @Autowired
     private AntPathMatcher antPathMatcher;
@@ -61,8 +69,28 @@ public class SecurityFilterJwt implements GlobalFilter, Ordered {
 
         log.info("已经拦截该用户");
         //检验JWT
+        HttpHeaders requestHeader = exchange.getRequest().getHeaders();
+        String userToken = requestHeader.getFirst(HEADER_USER_TOKEN);
+        if (StringUtils.isBlank(userToken))
+            return packingExchange(exchange,ResponseStatusEnum.JWT_SIGNATURE_ERROR);
 
-        return packingExchange(exchange,ResponseStatusEnum.JWT_SIGNATURE_ERROR);
+        String[] split = userToken.split(JWTUtils.at);
+        if (split.length < 2)
+            return packingExchange(exchange,ResponseStatusEnum.JWT_SIGNATURE_ERROR);
+
+
+        try {
+            String checkJWT = jwtUtils.checkJWT(split[1]);
+        }catch (ExpiredJwtException e){
+            return packingExchange(exchange,ResponseStatusEnum.JWT_EXPIRE_ERROR);
+        }catch (Exception e){
+            return packingExchange(exchange,ResponseStatusEnum.JWT_SIGNATURE_ERROR);
+        }
+        log.info("验证成功开始放行");
+
+
+
+        return chain.filter(exchange);
     }
 
     public Mono<Void> packingExchange(ServerWebExchange exchange,

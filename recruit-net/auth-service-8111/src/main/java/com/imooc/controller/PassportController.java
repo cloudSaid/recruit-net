@@ -70,6 +70,7 @@ public class PassportController extends BaseInfoProperties
     public GraceJSONResult login(@Validated @RequestBody RegistLoginBO registLoginBO,
                                  HttpServletRequest servletRequest) {
 
+
         String mobile = registLoginBO.getMobile();
         String smsCode = registLoginBO.getSmsCode();
 
@@ -89,7 +90,7 @@ public class PassportController extends BaseInfoProperties
 
         String userInfoJson = new Gson().toJson(userInfo);
         //创建jwt保存到redis并返回给前端
-        String userToken = jwtUtils.createJWTWithPrefix(userInfoJson, Long.valueOf(1000000), TOKEN_USER_PREFIX);
+        String userToken = jwtUtils.createJWTWithPrefix(userInfoJson, Long.valueOf(1000000000), TOKEN_USER_PREFIX);
 
 
 

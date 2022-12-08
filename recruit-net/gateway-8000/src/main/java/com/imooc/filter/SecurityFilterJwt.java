@@ -2,8 +2,10 @@ package com.imooc.filter;
 
 import com.fasterxml.jackson.databind.annotation.JsonAppend;
 import com.google.gson.Gson;
+import com.imooc.base.BaseInfoProperties;
 import com.imooc.grace.result.GraceJSONResult;
 import com.imooc.grace.result.ResponseStatusEnum;
+import com.imooc.pojo.Users;
 import com.imooc.properties.ReleasePathProperties;
 import com.imooc.utils.JWTUtils;
 import io.jsonwebtoken.ExpiredJwtException;
@@ -16,6 +18,7 @@ import org.springframework.core.Ordered;
 import org.springframework.core.io.buffer.DataBuffer;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.http.server.reactive.ServerHttpResponse;
 import org.springframework.stereotype.Component;
 import org.springframework.util.AntPathMatcher;
@@ -37,7 +40,7 @@ import java.util.function.Supplier;
  */
 @Component
 @Slf4j
-public class SecurityFilterJwt implements GlobalFilter, Ordered {
+public class SecurityFilterJwt extends BaseInfoProperties implements GlobalFilter, Ordered {
 
     @Autowired
     private ReleasePathProperties releasePaths;
@@ -68,29 +71,52 @@ public class SecurityFilterJwt implements GlobalFilter, Ordered {
         }
 
         log.info("已经拦截该用户");
-        //检验JWT
-        HttpHeaders requestHeader = exchange.getRequest().getHeaders();
-        String userToken = requestHeader.getFirst(HEADER_USER_TOKEN);
-        if (StringUtils.isBlank(userToken))
-            return packingExchange(exchange,ResponseStatusEnum.JWT_SIGNATURE_ERROR);
+        // 判断header中是否有token，对用户请求进行判断拦截
+        HttpHeaders headers = exchange.getRequest().getHeaders();
+        String userToken = headers.getFirst(HEADER_USER_TOKEN);
 
-        String[] split = userToken.split(JWTUtils.at);
-        if (split.length < 2)
-            return packingExchange(exchange,ResponseStatusEnum.JWT_SIGNATURE_ERROR);
+        // 判空header中的令牌
+        if (StringUtils.isNotBlank(userToken)) {
+            String[] tokenArr = userToken.split(JWTUtils.at);
+            if (tokenArr.length < 2) {
+                return packingExchange(exchange, ResponseStatusEnum.UN_LOGIN);
+            }
 
+            // 获得jwt的令牌与前缀
+            String prefix = tokenArr[0].substring(1);
+            String jwt = tokenArr[1];
 
-        try {
-            String checkJWT = jwtUtils.checkJWT(split[1]);
-        }catch (ExpiredJwtException e){
-            return packingExchange(exchange,ResponseStatusEnum.JWT_EXPIRE_ERROR);
-        }catch (Exception e){
-            return packingExchange(exchange,ResponseStatusEnum.JWT_SIGNATURE_ERROR);
+            // 判断并且处理用户信息
+            if (prefix.equalsIgnoreCase(TOKEN_USER_PREFIX)) {
+                return dealJWT(jwt, exchange, chain, APP_USER_JSON);
+            } else if (prefix.equalsIgnoreCase(TOKEN_SAAS_PREFIX)) {
+                return dealJWT(jwt, exchange, chain, SAAS_USER_JSON);
+            } else if (prefix.equalsIgnoreCase(TOKEN_ADMIN_PREFIX)) {
+                return dealJWT(jwt, exchange, chain, ADMIN_USER_JSON);
+            }
+
+//            return dealJWT(jwt, exchange, chain, APP_USER_JSON);
         }
-        log.info("验证成功开始放行");
+
+        // 不放行，token校验在jwt校验的自身代码逻辑中，到达此处表示都是漏掉的可能没有配置在excludeList
+//        GraceException.display(ResponseStatusEnum.UN_LOGIN);
+//        return chain.filter(exchange);
+        return packingExchange(exchange, ResponseStatusEnum.UN_LOGIN);
+    }
 
 
-
-        return chain.filter(exchange);
+    public Mono<Void> dealJWT(String jwt, ServerWebExchange exchange, GatewayFilterChain chain, String key) {
+        try {
+            String userJson = jwtUtils.checkJWT(jwt);
+            ServerWebExchange serverWebExchange = setNewHeader(exchange, key, userJson);
+            return chain.filter(serverWebExchange);
+        } catch (ExpiredJwtException e) {
+            e.printStackTrace();
+            return packingExchange(exchange, ResponseStatusEnum.JWT_EXPIRE_ERROR);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return packingExchange(exchange, ResponseStatusEnum.JWT_SIGNATURE_ERROR);
+        }
     }
 
     public Mono<Void> packingExchange(ServerWebExchange exchange,
@@ -112,6 +138,20 @@ public class SecurityFilterJwt implements GlobalFilter, Ordered {
 
         //进一步包装响应
         return response.writeWith(Mono.just(wrap));
+    }
+
+    public ServerWebExchange setNewHeader(ServerWebExchange exchange,
+                                          String headerKey,
+                                          String headerValue){
+
+        // 重新构建新的request
+        ServerHttpRequest newRequest = exchange.getRequest()
+                .mutate()
+                .header(headerKey, headerValue)
+                .build();
+        // 替换原来的request
+        ServerWebExchange newExchange = exchange.mutate().request(newRequest).build();
+        return newExchange;
     }
 
 

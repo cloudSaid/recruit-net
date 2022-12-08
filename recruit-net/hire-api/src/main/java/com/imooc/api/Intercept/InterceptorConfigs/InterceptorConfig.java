@@ -1,5 +1,6 @@
 package com.imooc.api.Intercept.InterceptorConfigs;
 
+import com.imooc.api.Intercept.CurrentUserInterceptor;
 import com.imooc.api.Intercept.JurisdictionInterceptor;
 import com.imooc.api.Intercept.SMSInterceptor;
 import org.springframework.cloud.util.ConditionalOnBootstrapEnabled;
@@ -28,15 +29,21 @@ public class InterceptorConfig implements WebMvcConfigurer {
     }
 
     @Bean
-    public JurisdictionInterceptor jurisdictionInterceptor(){
-        return new JurisdictionInterceptor();
+    public CurrentUserInterceptor currentUserInterceptor(){
+        return new CurrentUserInterceptor();
     }
 
+
+    /*
+    * /passport/getSMSCode
+releases.path[1]=/passport/login
+releases.path[2]=/passport/logout
+    * */
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(registerSMSInterceptor())
                 .addPathPatterns("/passport/getSMSCode");
-        registry.addInterceptor(jurisdictionInterceptor())
-                .addPathPatterns("/u/hello","/c/hello");
+        registry.addInterceptor(currentUserInterceptor())
+                .addPathPatterns("/c/hello");
     }
 }

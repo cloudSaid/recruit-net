@@ -32,7 +32,7 @@ public class CurrentUserInterceptor extends BaseInfoProperties implements Handle
     public boolean preHandle(HttpServletRequest request,
                              HttpServletResponse response,
                              Object handler) throws Exception {
-        
+
 
         String appUserJson = request.getHeader(APP_USER_JSON);
         String saasUserJson = request.getHeader(SAAS_USER_JSON);
@@ -65,6 +65,8 @@ public class CurrentUserInterceptor extends BaseInfoProperties implements Handle
 
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
+        currentUser.remove();
+        adminUser.remove();
         HandlerInterceptor.super.afterCompletion(request, response, handler, ex);
     }
 }

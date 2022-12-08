@@ -28,12 +28,16 @@ public class JWTUtils {
     @Autowired
     private JWTProperties jwtProperties;
 
-    @Value("${auth.jwt}")
+   /* @Value("${auth.jwt}")
+    public String JWT_KEY;*/
+
+    @Value("${jwt.key}")
     public String JWT_KEY;
 
     public String createJWTWithPrefix(String body, Long expireTimes, String prefix) {
         if (expireTimes == null)
             GraceException.display(ResponseStatusEnum.SYSTEM_NO_EXPIRE_ERROR);
+        log.info(JWT_KEY);
 
         return prefix + at + createJWT(body, expireTimes);
     }

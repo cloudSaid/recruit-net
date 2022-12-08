@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Data
-@PropertySource("classpath:Jwt.properties")
+@PropertySource("classpath:jwt.properties")
 @ConfigurationProperties(prefix = "auth")
 public class JWTProperties {
 

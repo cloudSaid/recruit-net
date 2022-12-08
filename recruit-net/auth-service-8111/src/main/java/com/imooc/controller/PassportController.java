@@ -1,5 +1,6 @@
 package com.imooc.controller;
 
+import com.google.gson.Gson;
 import com.imooc.base.BaseInfoProperties;
 import com.imooc.grace.result.GraceJSONResult;
 import com.imooc.grace.result.ResponseStatusEnum;
@@ -8,10 +9,12 @@ import com.imooc.pojo.bo.RegistLoginBO;
 import com.imooc.pojo.vo.UsersVO;
 import com.imooc.service.UsersService;
 import com.imooc.utils.IPUtil;
+import com.imooc.utils.JWTUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,6 +34,9 @@ public class PassportController extends BaseInfoProperties
 {
         @Autowired
         private UsersService usersService;
+
+        @Autowired
+        private JWTUtils jwtUtils;
 
     /**
      * 发送短信服务
@@ -78,14 +84,20 @@ public class PassportController extends BaseInfoProperties
             userInfo = usersService.createUsers(mobile);
         }
 
-        String uToken = TOKEN_USER_PREFIX + SYMBOL_DOT + UUID.randomUUID().toString();
-        redis.set(MOBILE_SMSCODE + ":" + userInfo.getId(),uToken);
+        /*String uToken = TOKEN_USER_PREFIX + SYMBOL_DOT + UUID.randomUUID().toString();
+        redis.set(MOBILE_SMSCODE + ":" + userInfo.getId(),uToken);*/
+
+        String userInfoJson = new Gson().toJson(userInfo);
+        //创建jwt保存到redis并返回给前端
+        String userToken = jwtUtils.createJWTWithPrefix(userInfoJson, Long.valueOf(1000), TOKEN_USER_PREFIX);
+
+
 
         redis.del(MOBILE_SMSCODE + ":" + mobile);
 
         UsersVO usersVO = new UsersVO();
         BeanUtils.copyProperties(userInfo,usersVO);
-        usersVO.setUserToken(uToken);
+        usersVO.setUserToken(userToken);
 
         return GraceJSONResult.ok(usersVO);
 

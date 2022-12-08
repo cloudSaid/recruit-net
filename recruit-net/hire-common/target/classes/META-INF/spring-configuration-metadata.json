@@ -13,7 +13,7 @@
   ],
   "properties": [
     {
-      "name": "auth.key",
+      "name": "auth.jwt",
       "type": "java.lang.String",
       "sourceType": "com.imooc.utils.JWTProperties"
     },

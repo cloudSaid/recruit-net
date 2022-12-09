@@ -18,12 +18,12 @@ public interface UsersService extends IService<Users> {
      * @param mobile
      * @return
      */
-    public Users queryMobileIsExist(String mobile);
+     Users queryMobileIsExist(String mobile);
 
     /**
      * 创建用户信息，并且返回用户对象
      * @param mobile
      * @return
      */
-    public Users createUsers(String mobile);
+    Users createUsers(String mobile);
 }

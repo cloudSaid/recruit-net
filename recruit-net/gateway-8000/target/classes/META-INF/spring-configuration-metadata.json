@@ -1,14 +1,19 @@
 {
   "groups": [
     {
-      "name": "releases",
+      "name": "exclude",
       "type": "com.imooc.properties.ReleasePathProperties",
       "sourceType": "com.imooc.properties.ReleasePathProperties"
     }
   ],
   "properties": [
     {
-      "name": "releases.path",
+      "name": "exclude.ip-limit-urls",
+      "type": "java.util.List",
+      "sourceType": "com.imooc.properties.ReleasePathProperties"
+    },
+    {
+      "name": "exclude.urls",
       "type": "java.util.List",
       "sourceType": "com.imooc.properties.ReleasePathProperties"
     }

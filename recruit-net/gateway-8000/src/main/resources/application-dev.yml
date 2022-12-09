@@ -1,4 +1,8 @@
 spring:
+  redis:
+    host: localhost
+    port: 6379
+    password: abc123456
   cloud:
     nacos:
       discovery:
@@ -20,4 +24,4 @@ spring:
         - id: authCore
           uri: lb://auth-service
           predicates:
-            - Path=/a/**,/passport/**
+            - Path=/a/**,/passport/**,/saas/**

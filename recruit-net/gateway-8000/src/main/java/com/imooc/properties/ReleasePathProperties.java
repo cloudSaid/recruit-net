@@ -16,8 +16,11 @@ import java.util.List;
 @Component
 @Data
 @PropertySource("classpath:ReleasePath.properties")
-@ConfigurationProperties(prefix = "releases")
+@ConfigurationProperties(prefix = "exclude")
 public class ReleasePathProperties {
 
-    private List path;
+    private List urls;
+
+    private List ipLimitUrls;
+
 }

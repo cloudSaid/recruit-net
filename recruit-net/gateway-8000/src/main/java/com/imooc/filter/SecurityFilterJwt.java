@@ -59,7 +59,7 @@ public class SecurityFilterJwt extends BaseInfoProperties implements GlobalFilte
         //获得当前请求路径
         String path = exchange.getRequest().getURI().getPath();
         //获得放行路径
-        List<String> releasePath = releasePaths.getPath();
+        List<String> releasePath = releasePaths.getUrls();
         //函数式编程过滤路径
         long count = releasePath.stream()
                 .filter(releasepath -> antPathMatcher.matchStart(releasepath,path)).count();
@@ -157,6 +157,6 @@ public class SecurityFilterJwt extends BaseInfoProperties implements GlobalFilte
 
     @Override
     public int getOrder() {
-        return 0;
+        return 1;
     }
 }

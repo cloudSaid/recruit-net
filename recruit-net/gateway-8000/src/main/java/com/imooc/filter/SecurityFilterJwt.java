@@ -83,7 +83,7 @@ public class SecurityFilterJwt extends BaseInfoProperties implements GlobalFilte
             }
 
             // 获得jwt的令牌与前缀
-            String prefix = tokenArr[0].substring(1);
+            String prefix = tokenArr[0];
             String jwt = tokenArr[1];
 
             // 判断并且处理用户信息
@@ -157,6 +157,6 @@ public class SecurityFilterJwt extends BaseInfoProperties implements GlobalFilte
 
     @Override
     public int getOrder() {
-        return 1;
+        return 0;
     }
 }

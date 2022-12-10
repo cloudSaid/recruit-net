@@ -148,6 +148,6 @@ public class CurrentLimitingFilter extends BaseInfoProperties implements GlobalF
 
     @Override
     public int getOrder() {
-        return 0;
+        return 1;
     }
 }

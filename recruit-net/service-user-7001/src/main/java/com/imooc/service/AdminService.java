@@ -3,6 +3,7 @@ package com.imooc.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.imooc.pojo.Admin;
 import com.imooc.pojo.bo.AdminBO;
+import com.imooc.pojo.bo.CreateAdminBO;
 
 
 /**
@@ -16,16 +17,11 @@ import com.imooc.pojo.bo.AdminBO;
 public interface AdminService extends IService<Admin> {
 
     /**
-     * admin 登录
-     * @param adminBO
+     * admin 注册
+     * @param
      * @return
      */
-    public boolean adminLogin(AdminBO adminBO);
 
-    /**
-     * 获得admin信息
-     * @param adminBO
-     * @return
-     */
-    public Admin getAdminInfo(AdminBO adminBO);
+    public void createAdmin(CreateAdminBO createAdminBO);
+
 }

@@ -44,7 +44,7 @@ public class PassportController extends BaseInfoProperties
      * @param servletRequest
      * @return
      */
-    @GetMapping("getSMSCode")
+    @PostMapping("getSMSCode")
     public GraceJSONResult getSMSCode(String mobile, HttpServletRequest servletRequest)
     {
 

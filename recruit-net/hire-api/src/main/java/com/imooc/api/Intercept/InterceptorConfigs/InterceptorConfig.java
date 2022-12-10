@@ -44,6 +44,6 @@ releases.path[2]=/passport/logout
         registry.addInterceptor(registerSMSInterceptor())
                 .addPathPatterns("/passport/getSMSCode");
         registry.addInterceptor(currentUserInterceptor())
-                .addPathPatterns("/c/hello");
+                .addPathPatterns("/**");
     }
 }

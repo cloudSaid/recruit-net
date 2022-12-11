@@ -1,9 +1,11 @@
 package com.imooc.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.imooc.api.Intercept.InterceptorConfigs.InterceptorConfig;
 import com.imooc.pojo.Admin;
 import com.imooc.pojo.bo.AdminBO;
 import com.imooc.pojo.bo.CreateAdminBO;
+import com.imooc.utils.PagedGridResult;
 
 
 /**
@@ -14,7 +16,7 @@ import com.imooc.pojo.bo.CreateAdminBO;
  * @author Leo
  * @since
  */
-public interface AdminService extends IService<Admin> {
+public interface AdminService {
 
     /**
      * admin 注册
@@ -23,5 +25,15 @@ public interface AdminService extends IService<Admin> {
      */
 
     public void createAdmin(CreateAdminBO createAdminBO);
+
+
+    /**
+     * admin账户列表分页
+     * @param accountName
+     * @param page
+     * @param limit
+     * @return
+     */
+    public PagedGridResult getAminList(String accountName, Integer page, Integer limit);
 
 }

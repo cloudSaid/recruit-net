@@ -11,6 +11,7 @@ import com.imooc.pojo.bo.CreateAdminBO;
 import com.imooc.pojo.vo.AdminVO;
 import com.imooc.service.AdminService;
 import com.imooc.utils.JWTUtils;
+import com.imooc.utils.PagedGridResult;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +42,14 @@ public class AdminController extends BaseInfoProperties
         return GraceJSONResult.ok();
     }
 
+    @PostMapping("list")
+    public PagedGridResult list(String accountName,Integer page,Integer limit){
+
+        if (page == null) page = 1;
+        if (limit == null) limit = 10;
+
+        return adminService.getAminList(accountName, page, limit);
+    }
 
 
 

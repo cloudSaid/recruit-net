@@ -35,7 +35,7 @@
       <module name="hire-api" options="-parameters" />
       <module name="hire-common" options="-parameters" />
       <module name="hire-pojo" options="-parameters" />
-      <module name="imooc-hire-dev" options="-parameters" />
+      <module name="imooc-hire-dev" options="" />
       <module name="service-company-6001" options="-parameters" />
       <module name="service-user-7001" options="-parameters" />
       <module name="service-verificationcode" options="-parameters" />

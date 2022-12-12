@@ -14,12 +14,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.UUID;
 
 /**
  * @author Leo
@@ -37,6 +35,9 @@ public class PassportController extends BaseInfoProperties
 
         @Autowired
         private JWTUtils jwtUtils;
+
+
+
 
     /**
      * 发送短信服务
@@ -60,6 +61,7 @@ public class PassportController extends BaseInfoProperties
         String numberCode = (int) ((Math.random() * 9 + 1) * 100000) + "";
         //调用第三方接口发送短信服务
         log.info("阿里云短信服务发送验证码" + numberCode);
+        /*asyncSendSMS.retrySendSMS(mobile,Integer.valueOf(numberCode));*/
         //存入redis
         redis.set(MOBILE_SMSCODE + ":" + mobile,numberCode,30*60);
         return GraceJSONResult.ok();

@@ -1,23 +1,17 @@
 package com.imooc.test;
 
-import com.google.gson.Gson;
-import com.imooc.pojo.test.Stu;
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.Jws;
-import io.jsonwebtoken.JwtParser;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.security.Keys;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import sun.misc.BASE64Encoder;
-
-import javax.crypto.SecretKey;
 
 @SpringBootTest
 public class JWTTest {
 
+
+
+
     // 定义秘钥，提供给jwt加密解密，一般都是由开发者或者公司定的规范，建议32位
-    public static final String USER_KEY = "imooc_123456789_123456789";
+  /*  public static final String USER_KEY = "imooc_123456789_123456789";
 
     @Test
     public void createJWT() {
@@ -63,6 +57,6 @@ public class JWTTest {
         Stu stu = new Gson().fromJson(stuJson, Stu.class);
 
         System.out.println(stu);
-    }
+    }*/
 
 }

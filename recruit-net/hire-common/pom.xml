@@ -12,6 +12,9 @@
     <artifactId>hire-common</artifactId>
 
     <dependencies>
+
+
+
         <!-- 引入SpringBoot 依赖-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -140,7 +143,7 @@
 
         <dependency>
             <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
+            <artifactId>junit-jupiter-api</artifactId>
         </dependency>
 
         <dependency>

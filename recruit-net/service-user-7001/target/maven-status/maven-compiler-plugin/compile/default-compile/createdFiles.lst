@@ -1,0 +1,9 @@
+com\imooc\controller\AdminController.class
+com\imooc\mapper\StuMapper.class
+com\imooc\controller\HelloController.class
+com\imooc\UserApplication.class
+com\imooc\service\impl\StuServiceImpl.class
+com\imooc\service\AdminService.class
+com\imooc\service\impl\AdminServiceImpl.class
+com\imooc\mapper\AdminMapper.class
+com\imooc\service\StuService.class

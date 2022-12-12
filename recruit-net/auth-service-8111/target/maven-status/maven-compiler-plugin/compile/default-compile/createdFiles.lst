@@ -1,0 +1,12 @@
+com\imooc\controller\AdminController.class
+com\imooc\service\UsersService.class
+com\imooc\service\impl\UserServiceImpl.class
+com\imooc\Remote\VerificationCodeClient.class
+com\imooc\controller\AuthController.class
+com\imooc\AuthApplication.class
+com\imooc\mapper\UsersMapper.class
+com\imooc\service\AdminService.class
+com\imooc\controller\PassportController.class
+com\imooc\service\impl\AdminServiceImpl.class
+com\imooc\controller\SaasPassportController.class
+com\imooc\mapper\AdminMapper.class

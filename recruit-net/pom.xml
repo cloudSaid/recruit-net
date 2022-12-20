@@ -23,7 +23,7 @@
         <module>service-company-6001</module>
         <module>gateway-8000</module>
         <module>service-verificationcode-8112</module>
-
+        <module>server-resource-4001</module>
     </modules>
 
     <!--

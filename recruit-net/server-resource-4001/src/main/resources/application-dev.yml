@@ -2,9 +2,9 @@ spring:
   datasource:                                     # 数据源的相关配置
     type: com.zaxxer.hikari.HikariDataSource      # 数据源的类型，可以更改为其他的数据源配置，比如druid
     driver-class-name: com.mysql.cj.jdbc.Driver      # mysql/MariaDB 的数据库驱动类名称
-    url: jdbc:mysql://localhost:3306/imooc_hire?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    url: jdbc:mysql://192.168.1.121:3306/imooc-hire-dev?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
     username: root
-    password: root
+    password: imooc
     hikari:
       connection-timeout: 30000               # 等待连接池分配连接的最大时间（毫秒），超过这个时长还没有可用的连接，则会抛出SQLException
       minimum-idle: 5                         # 最小连接数
@@ -14,18 +14,22 @@ spring:
       pool-name: DataSourceHikariCP           # 连接池的名字
       max-lifetime: 18000000                  # 连接池的最大生命时长（毫秒），超时则会被释放（retired）
       connection-test-query: SELECT 1
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
   rabbitmq:
     host: 43.143.1.156
     port: 5672
     virtual-host: /
     username: admin
     password: Yw2358699185
-  cloud:
-    nacos:
-      discovery:
-        server-addr: 127.0.0.1:8848
-  redis:
-    host: 127.0.0.1
-    port: 6379
-    database: 0
-    password: abc123456
+    listener:
+      simple:
+        acknowledge-mode: manual  # 手动ack确认
+          prefetch: 2  # 每次每个消费者从mq中拉去的消息的数量，直到手动ack确认之后，才会拉去下个消息
+
+jasypt:
+  encryptor:
+    algorithm: PBEWithMD5AndDES
+    password: fengjianyingyue

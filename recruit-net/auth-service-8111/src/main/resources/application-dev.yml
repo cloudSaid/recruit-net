@@ -14,6 +14,14 @@ spring:
       pool-name: DataSourceHikariCP           # 连接池的名字
       max-lifetime: 18000000                  # 连接池的最大生命时长（毫秒），超时则会被释放（retired）
       connection-test-query: SELECT 1
+  rabbitmq:
+    host: 43.143.1.156
+    port: 5672
+    virtual-host: /
+    username: admin
+    password: Yw2358699185
+    publisher-confirm-type: correlated #开启回调
+    publisher-returns: true #消息发送到交换机失败则返回该消息
   cloud:
     nacos:
       discovery:

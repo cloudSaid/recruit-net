@@ -12,9 +12,6 @@
     <artifactId>hire-common</artifactId>
 
     <dependencies>
-
-
-
         <!-- 引入SpringBoot 依赖-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -150,7 +147,6 @@
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
         </dependency>
-
 
 
     </dependencies>
